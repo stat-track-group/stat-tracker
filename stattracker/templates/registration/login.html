@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>index.html</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+
+		{% if next %}
+		{% if user.is_authenticated %}
+		<p>Please Correct Errors on your form</p>
+		{% else %}
+		<p>Please Login to See Restricted Content.</p>
+		{% endif %}
+		{% endif %}
+
+		<form class="form-signin" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+			<h4 class="form-signin-heading">Please Login</h4>
+			{% csrf_token %}
+			<div class="form-group">
+				{{form.as_p}}
+			</div>
+		<input type="submit" class="btn btn-primary" value="login" />
+		<input type="hidden" name="next" value="{{ '/tracker' }}" />
+
+		</form>
+
+		{# Assumes you setup the password_reset view in your URLconf #}
+		
+</body>
+</html>
