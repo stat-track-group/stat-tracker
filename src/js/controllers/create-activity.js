@@ -11,7 +11,7 @@ router.route('', function () {
 
 	$.ajax({
 	  method: "POST",
-	  url: "api/activities/"
+	  url: "/api/activities/"
 	})
 	  .done(function( data ) {
 	    console.log(data)
