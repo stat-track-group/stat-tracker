@@ -21,4 +21,4 @@ class ActivityStatistics(models.Model):
     value = models.CharField(max_length = 10)
 
     def __str__(self):
-        return "{}: {} - {}".format(self.user, self.activity, self.value)
+        return "{}: {} - {}".format(self.owner, self.activity, self.value)
