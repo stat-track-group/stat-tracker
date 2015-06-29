@@ -1,1 +1,3 @@
-console.log("Howdy from main.js!");
+$('.click-btn').on('click', function() {
+	alert('wut up');
+})
