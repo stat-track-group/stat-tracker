@@ -27,9 +27,11 @@ router.register(r'stats', views.StatisticsViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^tracker/$', TemplateView.as_view(template_name="index.html")),
     url(r'^api/', include(router.urls)),
     url(r'^api/activities/(?P<pk>\d+)', views.ActivityDetailView.as_view(), name='activities-detail'),
     url(r'^api/activities/(?P<pk>\d+/stats/$)', views.ActivityStatsView.as_view(), name='activity-stats'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')), 
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': 'login'}),
     ]

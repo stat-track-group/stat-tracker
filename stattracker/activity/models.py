@@ -12,13 +12,7 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.activity_name
-'''
-class UserActivity(models.Model):
-    activity = models.ForeignKey(Activity)
-    owner = models.ForeignKey(User)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
-'''
+
     
 class ActivityStatistics(models.Model):
     activity = models.ForeignKey(Activity)
@@ -27,4 +21,4 @@ class ActivityStatistics(models.Model):
     value = models.CharField(max_length = 10)
 
     def __str__(self):
-        return "{}: {} - {}".format(self.user, self.activity, self.value)
+        return "{}: {} - {}".format(self.owner, self.activity, self.value)
