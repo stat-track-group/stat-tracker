@@ -17,7 +17,19 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from rest_framework import routers
+
+from activity import views
+
+router = routers.DefaultRouter()
+router.register(r'activities', views.ActivityViewSet)
+router.register(r'stats', views.StatisticsViewSet)
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
-]
+    url(r'^api/', include(router.urls)),
+    url(r'^api/activities/(?P<pk>\d+)', views.ActivityDetailView.as_view(), name='activities-detail'),
+    url(r'^api/activities/(?P<pk>\d+/stats/$)', views.ActivityStatsView.as_view(), name='activity-stats'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')), 
+    ]
