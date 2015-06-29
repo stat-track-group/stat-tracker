@@ -9,5 +9,13 @@ var show = require('../show');
 router.route('', function () {
 	show('home');
 
+	$.ajax({
+	  method: "POST",
+	  url: "api/activities/"
+	})
+	  .done(function( data ) {
+	    console.log(data)
+	  });
+
 
 });
