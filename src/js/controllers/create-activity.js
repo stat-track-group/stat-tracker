@@ -10,7 +10,7 @@ router.route('', function () {
 	show('home');
 
 	$.ajax({
-	  method: "POST",
+	  method: "GET",
 	  url: "/api/activities/"
 	})
 	  .done(function( data ) {
