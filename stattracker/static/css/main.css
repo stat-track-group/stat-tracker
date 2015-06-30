@@ -105,7 +105,8 @@ form input {
   padding: 2em;
   max-width: 50%;
   margin: auto;
-  margin-top: 5em; }
+  margin-top: 5em;
+  border-radius: 3%; }
 
 .register a {
   padding: 2em;
