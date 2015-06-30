@@ -11,6 +11,7 @@ from activity.permissions import IsOwnerOrReadOnly
 class ActivityViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)        
     serializer_class = ActivitySerializer
+    
     def get_queryset(self):
         return Activity.objects.filter(owner = self.request.user)
     
@@ -21,24 +22,13 @@ class ActivityViewSet(viewsets.ModelViewSet):
 class ActivityDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = ActivitySerializer
-    def get_queryset(self):
-        return Activity.objects.filter(owner = self.request.user)
-
-
-class ActivityStatsView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
-    serializer_class = ActivitySerializer
-    def get_queryset(self):
-        return Activity.objects.filter(owner = self.request.user)    
 
     
 class StatisticsDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
-    serializer_class = StatisticsSerializer
-    def get_queryset(self):
-        return ActivityStatistics.objects.filter(owner = self.request.user)    
+    serializer_class = StatisticsSerializer   
 
-
+    
 class StatisticsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = StatisticsSerializer
@@ -62,6 +52,7 @@ class UserViewSet(viewsets.ModelViewSet):
     #permission_classes = (permissions.IsAuthenticated)
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
     def get_queryset(self):
         return User.objects.filter(id = self.request.user.id)
     

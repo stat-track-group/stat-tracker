@@ -1,11 +1,14 @@
 <h1>Your Activities</h1>
 
-
-<ul class="activities-ul">
-	<% m.activities.forEach(function(activity) { %>
-		<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %></li></a><a href="#/activities/<%- activity.id %>/stats">Add entry</a>
-	
-	<% }) %>
-</ul>
-<a href="#/activities/new">Create New Activity</a>
-<a href="/logout">Log Out</a>
+<div class="register">
+	<ul class="activities-ul">
+		<% m.activities.forEach(function(activity) { %>
+			<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %></li></a><a href="#/activities/<%- activity.id %>/stats">Add entry</a>
+		
+		<% }) %>
+	</ul>
+	<div class="home-btns">
+		<a href="#/activities/new">Create New Activity</a>
+		<a href="/logout">Log Out</a>
+	</div>
+</div>

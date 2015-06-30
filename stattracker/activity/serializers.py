@@ -4,21 +4,13 @@ from activity.models import Activity, ActivityStatistics
 
 
 class ActivitySerializer(serializers.HyperlinkedModelSerializer):
-    #owner = serializers.RelatedField(User)
-    class Meta:
-        model = Activity
-        fields = ('id', 'url', 'activity_name', 'description')
-
-
-class ActivityStatsSerializer(serializers.HyperlinkedModelSerializer):
-    
     class Meta:
         model = Activity
         fields = ('id', 'url', 'activity_name', 'description')
 
         
-class StatisticsSerializer(serializers.HyperlinkedModelSerializer):
-    
+class StatisticsSerializer(serializers.ModelSerializer):
+    activity = serializers.PrimaryKeyRelatedField
     class Meta:
         model = ActivityStatistics
         fields = ('id', 'url', 'activity', 'value', 'statistics_date')

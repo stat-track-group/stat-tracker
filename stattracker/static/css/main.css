@@ -66,17 +66,31 @@ h1 {
   text-align: center;
   font-size: 5em; }
 
-.activities-ul {
-  margin: 2em;
-  padding: 0.5em;
-  background-color: #EEE; }
+.home-btns {
+  width: 50%;
+  background-color: red;
+  padding: 0;
+  margin: auto; }
 
+<<<<<<< HEAD
 .activity-li {
   text-align: center;
   padding: 1em;
   font-size: 2em;
   box-shadow: -3px 7px 21px 6px rgba(146, 126, 171, 0.53); }
 
+=======
+.home-btns a {
+  color: white; }
+
+form {
+  padding: 1em; }
+
+form input {
+  display: block;
+  margin: 0.5em; }
+
+>>>>>>> c928cbbb98f7a634c9b100dd3125319408cfe60b
 .register {
   text-align: center;
   background-color: rgba(234, 235, 230, 0.8);
@@ -89,6 +103,7 @@ h1 {
   padding: 2em;
   display: block;
   color: green; }
+<<<<<<< HEAD
 
 form {
   padding: 1em; }
@@ -96,3 +111,5 @@ form {
 form input {
   display: block;
   margin: 0.5em; }
+=======
+>>>>>>> c928cbbb98f7a634c9b100dd3125319408cfe60b
