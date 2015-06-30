@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+from datetime import datetime
 
 
 class Activity(models.Model):
@@ -15,9 +15,9 @@ class Activity(models.Model):
 
     
 class ActivityStatistics(models.Model):
-    activity = models.ForeignKey(Activity)
+    activity = models.ForeignKey(Activity, related_name="activity")
     owner = models.ForeignKey(User)
-    statistics_date = models.DateTimeField()
+    statistics_date = models.DateTimeField(default=datetime.now())
     value = models.CharField(max_length = 10)
 
     def __str__(self):
