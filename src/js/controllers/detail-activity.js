@@ -19,6 +19,31 @@ router.route('activities/:id', function (id) {
 	    show('detail-template', { activity: data });
 	});
 
+	// var statsArray = [];  
+
+	// $.ajax({
+	//   method: "GET",
+	//   url: "/api/stats/"
+	// })
+	//   .done(function(data) {
+	//     var stats = data;
+	//     for(var i=0; i < stats.length; i++) {
+	//     	if(stats[i].activity == id) {
+	//     		statsArray.push(stats[i])
+	//     	}
+
+	//     }
+	// });  
+	
+	$.ajax({
+	  method: "GET",
+	  url: "/api/activities/" + id + "/stats/"
+	})
+	  .done(function(data) {
+	    console.log(data)
+	});
+	
+
 	$('.main-content').on('click', '.rmv-btn' , function() {
 
 		$.ajax({	
