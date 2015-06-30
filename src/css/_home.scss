@@ -1,14 +1,10 @@
-.activities-ul{
-	margin: 2em;
-	padding: 0.5em;
-	background-color: #EEE;
+.home-btns {
+		width: 50%;
+		background-color: red;
+		padding: 0;
+		margin: auto;
+}
+.home-btns a {
+	color: white;
+}
 
-}
-.activity-li{
-	text-align: center;
-	text-decoration: none;
-	padding: 1em;
-	font-size: 2em;
-	box-shadow: -3px 7px 21px 6px rgba(146,126,171,0.53);
-	
-}

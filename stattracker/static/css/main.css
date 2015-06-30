@@ -45,11 +45,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-<<<<<<< HEAD
 li {
-=======
+  text-decoration: none; }
+
 * {
->>>>>>> 1d0cc8b094740ca5d07540f040b06e942f5cb9f1
   text-decoration: none; }
 
 html {
@@ -67,18 +66,21 @@ h1 {
   text-align: center;
   font-size: 5em; }
 
-.activities-ul {
-  margin: 2em;
-  padding: 0.5em;
-  background-color: #EEE; }
+.home-btns {
+  width: 50%;
+  background-color: red;
+  padding: 0;
+  margin: auto; }
 
-.activity-li {
-  text-align: center;
-  text-decoration: none;
-  padding: 1em;
-  font-size: 2em;
-  box-shadow: -3px 7px 21px 6px rgba(146, 126, 171, 0.53); }
+.home-btns a {
+  color: white; }
 
+form {
+  padding: 1em; }
+
+form input {
+  display: block;
+  margin: 0.5em; }
 
 .register {
   text-align: center;
@@ -92,11 +94,3 @@ h1 {
   padding: 2em;
   display: block;
   color: green; }
-
-form {
-  padding: 1em; }
-
-form input {
-  display: block;
-  margin: 0.5em; }
-

@@ -24,12 +24,12 @@ router.route('activities/:id/stats', function (id) {
 	  	method: "POST",
 	  	url: "/api/stats/",
 	  	data: {
-	  		activity_id: id,
+	  		activity: id,
     		value: $('.stat-input').val()
 	  	}
 		})
 	  	.done(function() {
-	  		alert('success')
+	  		window.location.href="#/activities";
 		});
 
 	})  
