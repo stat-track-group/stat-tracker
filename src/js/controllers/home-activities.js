@@ -6,15 +6,15 @@ var views = require('views');
 var router = require('../router');
 var show = require('../show');
 
-router.route('', function () {
-	show('home');
-
+router.route('', 'activities', function () {
+	
 	$.ajax({
 	  method: "GET",
 	  url: "/api/activities/"
 	})
 	  .done(function( data ) {
-	    console.log(data)
+	  	console.log(data)
+	    show('home', {activities: data})
 	  });
 
 

@@ -5,7 +5,7 @@
 "use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("activities/:id/edit",function(e){show("edit-activity")});
 
 },{"../router":6,"../show":7,"jquery":"jquery","underscore":"underscore","views":"views"}],3:[function(require,module,exports){
-"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("",function(){show("home"),$.ajax({method:"GET",url:"/api/activities/"}).done(function(e){console.log(e)})});
+"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("","activities",function(){$.ajax({method:"GET",url:"/api/activities/"}).done(function(e){console.log(e),show("home",{activities:e})})});
 
 },{"../router":6,"../show":7,"jquery":"jquery","underscore":"underscore","views":"views"}],4:[function(require,module,exports){
 "use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("activities/new",function(){show("new-activity")});
