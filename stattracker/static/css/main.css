@@ -45,11 +45,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+<<<<<<< HEAD
+li {
+=======
+* {
+>>>>>>> 1d0cc8b094740ca5d07540f040b06e942f5cb9f1
+  text-decoration: none; }
+
 html {
   height: 100%; }
 
 body {
-  background: url("../img/yoga.png"), linear-gradient(to bottom, #ADB2B6, #ABAEB3);
+  background: linear-gradient(RGBA(108, 129, 184, 0.5), RGBA(159, 129, 184, 0.5)), url("../img/jump.jpg");
   background-size: cover;
   background-position: bottom;
   min-height: 100%; }
@@ -66,6 +73,30 @@ h1 {
   background-color: #EEE; }
 
 .activity-li {
+  text-align: center;
+  text-decoration: none;
   padding: 1em;
   font-size: 2em;
   box-shadow: -3px 7px 21px 6px rgba(146, 126, 171, 0.53); }
+
+
+.register {
+  text-align: center;
+  background-color: rgba(234, 235, 230, 0.8);
+  padding: 2em;
+  max-width: 50%;
+  margin: auto;
+  margin-top: 5em; }
+
+.register a {
+  padding: 2em;
+  display: block;
+  color: green; }
+
+form {
+  padding: 1em; }
+
+form input {
+  display: block;
+  margin: 0.5em; }
+
