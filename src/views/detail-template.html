@@ -1,8 +1,10 @@
 <h1>Details Page</h1>
 
 <div class="register">
+	<p class="details-labels">Your Activity:</p>
 	<p> <%- m.activity.activity_name %> </p>
 	<p> <%- m.activity.description %> </p>
+	<p class="details-labels">Recent Stats:</p>
 	<div class="stats-container"></div>
 	<a href="#/activities/<%- m.activity.id %>/edit">Edit</a>
 	<button class="rmv-btn">Delete</button>
