@@ -1,0 +1,10 @@
+<h1>List of activities</h1>
+
+
+<ul class="activities-ul">
+	<% m.activities.forEach(function(activity) { %>
+		<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %>
+		<%- activity.description %></li></a>
+	<% }) %>
+</ul>
+<a href="#/activities/new">Create New Activity</a>

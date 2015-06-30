@@ -7,7 +7,28 @@ var router = require('../router');
 var show = require('../show');
 
 router.route('activities/new', function () {
-	show('new-activity');
+	show('new-template');
+
+	$('.new-record-form').on('submit', function (e) {
+		e.preventDefault();
+
+		var activity = $('.activity-field').val();
+		var description = $('.description-field').val();
+
+		var newActivity = {
+			'activity_name': activity,
+			'description': description
+		};
+
+	  $.ajax({
+		  method: "POST",
+		  url: "/api/activities/",
+		  data: { new: newActivity }
+		})
+	  	.done(function( msg ) {
+	    	alert( "Data Saved: " + msg );
+  	});
 
 
+	})
 });

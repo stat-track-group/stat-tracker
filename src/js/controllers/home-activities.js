@@ -7,7 +7,15 @@ var router = require('../router');
 var show = require('../show');
 
 router.route('', 'activities', function () {
-	show('home');
+	
+	$.ajax({
+	  method: "GET",
+	  url: "/api/activities/"
+	})
+	  .done(function( data ) {
+	    show('home', {activities: data})
+	});
+
 
 
 });

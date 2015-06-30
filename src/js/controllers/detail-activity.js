@@ -6,8 +6,16 @@ var views = require('views');
 var router = require('../router');
 var show = require('../show');
 
-router.route('activities/:id/details', function (id) {
-	show('detail-template');
+router.route('activities/:id', function (id) {
+
+	$.ajax({
+	  method: "GET",
+	  url: "/api/activities/" + id 
+	})
+	  .done(function(data) {
+	    show('detail-template', { activity: data });
+	});
+
 
 
 });
