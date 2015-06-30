@@ -45,7 +45,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+<<<<<<< HEAD
+li {
+=======
 * {
+>>>>>>> 1d0cc8b094740ca5d07540f040b06e942f5cb9f1
   text-decoration: none; }
 
 html {

@@ -3,8 +3,8 @@
 
 <ul class="activities-ul">
 	<% m.activities.forEach(function(activity) { %>
-		<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %>
-		<%- activity.description %></li></a>
+		<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %></li></a><a href="#/activities/<%- activity.id %>/stats">Add entry</a>
+	
 	<% }) %>
 </ul>
 <a href="#/activities/new">Create New Activity</a>
