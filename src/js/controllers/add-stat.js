@@ -15,7 +15,7 @@ router.route('activities/:id/stats', function (id) {
 
 	$('.main-content').on('submit', '.stat-form', function(e) {
 		e.preventDefault();
-		alert($('.stat-input').val())
+		
 		$.ajax({
 			beforeSend: function (request)
             {
