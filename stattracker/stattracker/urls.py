@@ -24,6 +24,7 @@ from activity import views
 router = routers.DefaultRouter()
 router.register(r'activities', views.ActivityViewSet)
 router.register(r'stats', views.StatisticsViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/activities/(?P<pk>\d+)/$', views.ActivityDetailView.as_view(), name='activities-detail'),
     url(r'^api/activities/(?P<pk>\d+/stats/$)', views.ActivityStatsView.as_view(), name='activity-stats'),
+    url(r'^api/users/(?P<pk>\d+/$)', views.UserDetailView.as_view(), name='user-detail'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': 'login'}),
