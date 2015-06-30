@@ -5,9 +5,12 @@ var _ = require('underscore');
 var views = require('views');
 var router = require('../router');
 var show = require('../show');
+var getCookie = require('../csrf.js');
 
 router.route('activities/:id/edit', function (id) {
 	
+	var csrftoken = getCookie('csrftoken');	
+
 	$.ajax({
 	  method: "GET",
 	  url: "/api/activities/" + id 
@@ -19,22 +22,22 @@ router.route('activities/:id/edit', function (id) {
 	$('.main-content').on('submit', '.edit-record-form' , function (e) {
 		e.preventDefault();
 
-		var activityEdit = $('.edit-activity-field').val();
-		var descripEdit = $('.edit-description-field').val();
-
-		var editedObj = {
-			id: id,
-			activity_name: activityEdit,
-			description: descripEdit
-		};
 
 		$.ajax({
-		  method: "POST",
-		  url: "/api/activities/" + id,
-		  data: {edit: editedObj} 
+			beforeSend: function (request)
+            {
+             request.setRequestHeader('X-CSRFToken', csrftoken);
+            },
+		  method: "PUT",
+		  url: "/api/activities/" + id + "/",
+		  data: {
+		  	id: id,
+		  	activity_name: $('.edit-activity-field').val(),
+		  	description:	$('.edit-description-field').val()
+		  } 
 		})
 	  	.done(function(msg) {
-	    // console.log('Updated!');
+	    alert('success!')
 		});
 
 
