@@ -19,24 +19,17 @@ router.route('activities/:id', function (id) {
 	    show('detail-template', { activity: data });
 	});
 
-
-
-
 	$('.main-content').on('click', '.rmv-btn' , function() {
-		console.log('hello')
 
-		$.ajax({
-			beforeSend: function (request)
-            {
-             request.setRequestHeader('X-CSRFToken', csrftoken);
-            },
+		$.ajax({	
+			beforeSend: function (request) {
+        request.setRequestHeader('X-CSRFToken', csrftoken);
+      },
 			method: "DELETE",
 			url: "/api/activities/" + id 
 		}).done(function() {
-			console.log('great')
-		})
-	})  
-
-
+			window.location.href="#/activities"
+		})  
+	});
 
 });

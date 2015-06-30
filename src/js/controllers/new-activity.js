@@ -16,8 +16,6 @@ router.route('activities/new', function () {
 	$('.new-record-form').on('submit', function (e) {
 		e.preventDefault();
 
-		// var activity = ;
-		// var description = ;
 
 
 	  $.ajax({
@@ -32,7 +30,7 @@ router.route('activities/new', function () {
 		  				'description': $('.description-field').val() }
 		})
 	  	.done(function( msg ) {
-	    	alert( "Data Saved: " + msg );
+	    	window.location.href="#/activities"
   	});
 
 
