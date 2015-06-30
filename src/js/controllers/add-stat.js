@@ -15,17 +15,18 @@ router.route('activities/:id/stats', function (id) {
 
 	$('.main-content').on('submit', '.stat-form', function(e) {
 		e.preventDefault();
-		
+
 		$.ajax({
 			beforeSend: function (request)
-            {
-             request.setRequestHeader('X-CSRFToken', csrftoken);
-            },
+        {
+         request.setRequestHeader('X-CSRFToken', csrftoken);
+      	},
 	  	method: "POST",
 	  	url: "/api/stats/",
 	  	data: {
 	  		activity: id,
-    		value: $('.stat-input').val()
+    		value: $('.stat-input').val(),
+    		statistics_date: '1986-04-06'
 	  	}
 		})
 	  	.done(function() {
