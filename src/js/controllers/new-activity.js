@@ -30,7 +30,8 @@ router.route('activities/new', function () {
 	  	.done(function() {
 	    	window.location.href="#/activities"
   	});
+	
+	});
 
 
-	})
 });
