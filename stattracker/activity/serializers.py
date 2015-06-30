@@ -15,7 +15,14 @@ class StatisticsSerializer(serializers.ModelSerializer):
         model = ActivityStatistics
         fields = ('id', 'url', 'activity', 'value', 'statistics_date')
 
+        
+class ActivityStatsSerializer(serializers.ModelSerializer):
+    activity = serializers.PrimaryKeyRelatedField
+    class Meta:
+        model = ActivityStatistics
+        fields = ('value', 'statistics_date')
 
+        
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     
     class Meta:

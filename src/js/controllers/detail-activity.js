@@ -19,6 +19,18 @@ router.route('activities/:id', function (id) {
 	    show('detail-template', { activity: data });
 	});
 
+	setTimeout(function(){  
+	$.ajax({
+	  method: "GET",
+	  url: "/api/activities/" + id + "/stats/"
+	})
+	  .done(function(data) {
+	    data.forEach(function(i) {
+	    	$('.stats-container').append(i.value)   	
+	 	})    
+	});	
+	}, 100);  
+
 	$('.main-content').on('click', '.rmv-btn' , function() {
 
 		$.ajax({	
