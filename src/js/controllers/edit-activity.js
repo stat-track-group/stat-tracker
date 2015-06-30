@@ -37,7 +37,7 @@ router.route('activities/:id/edit', function (id) {
 		  } 
 		})
 	  	.done(function(msg) {
-	    alert('success!')
+	    	window.location.href="#/activities"
 		});
 
 

@@ -16,5 +16,4 @@ router.route('activities', function () {
 	    show('home', {activities: data})
 	});
 
-
 });

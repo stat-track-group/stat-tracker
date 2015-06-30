@@ -45,6 +45,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+li {
+  text-decoration: none; }
+
 html {
   height: 100%; }
 
