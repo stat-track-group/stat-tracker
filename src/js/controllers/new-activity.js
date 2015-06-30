@@ -16,8 +16,6 @@ router.route('activities/new', function () {
 	$('.new-record-form').on('submit', function (e) {
 		e.preventDefault();
 
-
-
 	  $.ajax({
 	  	beforeSend: function (request)
             {
@@ -29,7 +27,7 @@ router.route('activities/new', function () {
 		  				'activity_name': $('.activity-field').val(),
 		  				'description': $('.description-field').val() }
 		})
-	  	.done(function( msg ) {
+	  	.done(function() {
 	    	window.location.href="#/activities"
   	});
 
