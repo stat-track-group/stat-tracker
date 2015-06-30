@@ -9,34 +9,42 @@ from activity.permissions import IsOwnerOrReadOnly
 # Create your views here.
 
 class ActivityViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)    
-    queryset = Activity.objects.all() # list all the activities
+    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)        
     serializer_class = ActivitySerializer
+    def get_queryset(self):
+        return Activity.objects.filter(owner = self.request.user)
+    
     def perform_create(self, serializer):
         serializer.save(owner = self.request.user)
 
 
 class ActivityDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
-    serializer_class = ActivitySerializer   
-    queryset = Activity.objects.all()
+    serializer_class = ActivitySerializer
+    def get_queryset(self):
+        return Activity.objects.filter(owner = self.request.user)
 
 
 class ActivityStatsView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = ActivitySerializer
-    queryset = Activity.objects.all()
+    def get_queryset(self):
+        return Activity.objects.filter(owner = self.request.user)    
 
     
 class StatisticsDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
     serializer_class = StatisticsSerializer
-    queryset = ActivityStatistics.objects.all()
+    def get_queryset(self):
+        return ActivityStatistics.objects.filter(owner = self.request.user)    
+
 
 class StatisticsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
-    queryset = ActivityStatistics.objects.all() 
     serializer_class = StatisticsSerializer
+
+    def get_queryset(self):
+        return ActivityStatistics.objects.filter(owner = self.request.user)    
 
     def perform_create(self, serializer):
         serializer.save(owner = self.request.user)
@@ -45,12 +53,17 @@ class StatisticsViewSet(viewsets.ModelViewSet):
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated)
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    
+    def get_queryset(self):
+        return User.objects.filter(id = self.request.user.id)    
+
 
 class UserViewSet(viewsets.ModelViewSet):
     #permission_classes = (permissions.IsAuthenticated)
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
+    def get_queryset(self):
+        return User.objects.filter(id = self.request.user.id)
+    
     def perform_create(self, serializer):
         serializer.save(password = make_password(self.request.POST['password']))

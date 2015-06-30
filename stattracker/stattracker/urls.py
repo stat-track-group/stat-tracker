@@ -22,16 +22,16 @@ from rest_framework import routers
 from activity import views
 
 router = routers.DefaultRouter()
-router.register(r'activities', views.ActivityViewSet)
-router.register(r'stats', views.StatisticsViewSet)
-router.register(r'users', views.UserViewSet)
+router.register(r'activities', views.ActivityViewSet, base_name='activities')
+router.register(r'stats', views.StatisticsViewSet, base_name='activitystatistics')
+router.register(r'users', views.UserViewSet, base_name="user")
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tracker/$', TemplateView.as_view(template_name="index.html")),
     url(r'^api/', include(router.urls)),
-    url(r'^api/activities/(?P<pk>\d+)/$', views.ActivityDetailView.as_view(), name='activities-detail'),
-    url(r'^api/activities/(?P<pk>\d+/stats/$)', views.ActivityStatsView.as_view(), name='activity-stats'),
+    url(r'^api/activities/(?P<pk>\d+)/$', views.ActivityDetailView.as_view(), name='activity-detail'),
+    url(r'^api/activities/(?P<pk>\d+/stats/$)', views.ActivityStatsView.as_view(), name='activitystatistics-details'),
     url(r'^api/users/(?P<pk>\d+/$)', views.UserDetailView.as_view(), name='user-detail'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^login/$', 'django.contrib.auth.views.login'),
