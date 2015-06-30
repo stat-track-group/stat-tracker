@@ -35,5 +35,5 @@ urlpatterns = [
     url(r'^api/users/(?P<pk>\d+/$)', views.UserDetailView.as_view(), name='user-detail'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^login/$', 'django.contrib.auth.views.login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': 'login'}),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/tracker/#/'}),
     ]

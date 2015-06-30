@@ -69,3 +69,10 @@ h1 {
   padding: 1em;
   font-size: 2em;
   box-shadow: -3px 7px 21px 6px rgba(146, 126, 171, 0.53); }
+
+form {
+  padding: 1em; }
+
+form input {
+  display: block;
+  margin: 0.5em; }
