@@ -10,4 +10,6 @@ router.route('activities/:id/edit', function (id) {
 	show('edit-activity');
 
 
+
+
 });
