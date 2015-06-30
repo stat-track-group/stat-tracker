@@ -19,30 +19,17 @@ router.route('activities/:id', function (id) {
 	    show('detail-template', { activity: data });
 	});
 
-	// var statsArray = [];  
-
-	// $.ajax({
-	//   method: "GET",
-	//   url: "/api/stats/"
-	// })
-	//   .done(function(data) {
-	//     var stats = data;
-	//     for(var i=0; i < stats.length; i++) {
-	//     	if(stats[i].activity == id) {
-	//     		statsArray.push(stats[i])
-	//     	}
-
-	//     }
-	// });  
-	
+	setTimeout(function(){  
 	$.ajax({
 	  method: "GET",
 	  url: "/api/activities/" + id + "/stats/"
 	})
 	  .done(function(data) {
-	    console.log(data)
-	});
-	
+	    data.forEach(function(i) {
+	    	$('.stats-container').append(i.value)   	
+	 	})    
+	});	
+	}, 100);  
 
 	$('.main-content').on('click', '.rmv-btn' , function() {
 
