@@ -6,7 +6,7 @@ var views = require('views');
 var router = require('../router');
 var show = require('../show');
 
-router.route('', function () {
+router.route('', 'activities', function () {
 	show('home');
 
 
