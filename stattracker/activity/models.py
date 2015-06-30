@@ -17,7 +17,7 @@ class Activity(models.Model):
 class ActivityStatistics(models.Model):
     activity = models.ForeignKey(Activity, related_name="activity")
     owner = models.ForeignKey(User)
-    statistics_date = models.DateTimeField(default=datetime.now())
+    statistics_date = models.DateField()
     value = models.CharField(max_length = 10)
 
     def __str__(self):
