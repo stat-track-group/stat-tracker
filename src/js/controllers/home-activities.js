@@ -17,5 +17,4 @@ router.route('', 'activities', function () {
 	});
 
 
-
 });
