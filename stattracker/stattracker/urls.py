@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^api/activities/(?P<pk>\d+)/$', views.ActivityDetailView.as_view(), name='activity-detail'),
     url(r'^api/stats/(?P<pk>\d+/$)', views.StatisticsDetailView.as_view(), name='activitystatistics'),
     url(r'^api/users/(?P<pk>\d+/$)', views.UserDetailView.as_view(), name='user-detail'),
-
+    url(r'^api/activities/(?P<pk>\d+)/stats/$', views.StatisticsView.as_view()),
     
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^login/$', 'django.contrib.auth.views.login'),
