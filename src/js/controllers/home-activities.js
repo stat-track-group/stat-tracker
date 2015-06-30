@@ -13,9 +13,8 @@ router.route('', 'activities', function () {
 	  url: "/api/activities/"
 	})
 	  .done(function( data ) {
-	  	console.log(data)
 	    show('home', {activities: data})
-	  });
+	});
 
 
 });

@@ -5,10 +5,10 @@
 "use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("activities/:id/edit",function(e){show("edit-activity")});
 
 },{"../router":6,"../show":7,"jquery":"jquery","underscore":"underscore","views":"views"}],3:[function(require,module,exports){
-"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("","activities",function(){$.ajax({method:"GET",url:"/api/activities/"}).done(function(e){console.log(e),show("home",{activities:e})})});
+"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("","activities",function(){$.ajax({method:"GET",url:"/api/activities/"}).done(function(e){show("home",{activities:e})})});
 
 },{"../router":6,"../show":7,"jquery":"jquery","underscore":"underscore","views":"views"}],4:[function(require,module,exports){
-"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("activities/new",function(){show("new-activity")});
+"use strict";var $=require("jquery"),_=require("underscore"),views=require("views"),router=require("../router"),show=require("../show");router.route("activities/new",function(){show("new-template"),$(".new-record-form").on("submit",function(e){e.preventDefault();$(".activity-field").val(),$(".description-field").val();$.ajax({method:"GET",url:"/api/activities/"}).done(function(e){console.log(e)})})});
 
 },{"../router":6,"../show":7,"jquery":"jquery","underscore":"underscore","views":"views"}],5:[function(require,module,exports){
 "use strict";var router=require("./router");({controllers:{"detail-activity":require("./controllers/detail-activity.js"),"edit-activity":require("./controllers/edit-activity.js"),"home-activities":require("./controllers/home-activities.js"),"new-activity":require("./controllers/new-activity.js")}}),router.init();
