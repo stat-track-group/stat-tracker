@@ -63,19 +63,6 @@ h1 {
   text-align: center;
   font-size: 5em; }
 
-.activities-ul {
-  margin: 2em;
-  padding: 0.5em;
-  background-color: #EEE; }
-
-.activity-li {
-  text-align: center;
-  text-decoration: none;
-  padding: 1em;
-  font-size: 2em;
-  box-shadow: -3px 7px 21px 6px rgba(146, 126, 171, 0.53); }
-
-
 .register {
   text-align: center;
   background-color: rgba(234, 235, 230, 0.8);
@@ -95,4 +82,3 @@ form {
 form input {
   display: block;
   margin: 0.5em; }
-
