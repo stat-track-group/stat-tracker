@@ -22,3 +22,10 @@ class StatisticsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ActivityStatistics
         fields = ('id', 'url', 'activity', 'value', 'statistics_date')
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ('id', 'url', 'username', 'first_name', 'last_name', 'password')
