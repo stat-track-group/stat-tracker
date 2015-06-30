@@ -67,13 +67,30 @@ h1 {
   font-size: 5em; }
 
 .home-btns {
+  text-align: center;
   width: 50%;
-  background-color: red;
-  padding: 0;
+  background-color: seagreen;
   margin: auto; }
 
 .home-btns a {
-  color: white; }
+  color: white;
+  padding: 1em; }
+
+.list {
+  text-align: center;
+  background-color: rgba(234, 235, 230, 0.8);
+  padding: 2em;
+  margin-top: 1em; }
+
+.activity-li {
+  display: inline-block;
+  padding: 0.8em;
+  font-size: 40px;
+  text-transform: capitalize; }
+
+.fake-li {
+  border-right: thick double seagreen;
+  padding: 0.5em; }
 
 form {
   padding: 1em; }
@@ -88,7 +105,8 @@ form input {
   padding: 2em;
   max-width: 50%;
   margin: auto;
-  margin-top: 5em; }
+  margin-top: 5em;
+  border-radius: 3%; }
 
 .register a {
   padding: 2em;
