@@ -3,7 +3,7 @@
 
 <ul class="activities-ul">
 	<% m.activities.forEach(function(activity) { %>
-		<li class="activity-li"><%- activity.activity_name %>
-		<%- activity.description %></li>
+		<a href="#/activities/<%- activity.id %>"><li class="activity-li"><%- activity.activity_name %>
+		<%- activity.description %></li></a>
 	<% }) %>
 </ul>
