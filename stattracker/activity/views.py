@@ -1,7 +1,8 @@
 from rest_framework import viewsets, permissions, generics
 from rest_framework.exceptions import PermissionDenied
-
-from activity.serializers import ActivitySerializer, StatisticsSerializer
+from django.contrib.auth.hashers import make_password
+from activity.serializers import ActivitySerializer, StatisticsSerializer, UserSerializer
+from django.contrib.auth.models import User
 from activity.models import Activity, ActivityStatistics
 from activity.permissions import IsOwnerOrReadOnly
 
@@ -34,10 +35,22 @@ class StatisticsDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class StatisticsViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
-    queryset = ActivityStatistics.objects.all() # list all the books
+    queryset = ActivityStatistics.objects.all() 
     serializer_class = StatisticsSerializer
 
-    #this is responsible for displaying the last page where we have
-    # details about a stat
     def perform_create(self, serializer):
         serializer.save(owner = self.request.user)
+
+
+class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.IsAuthenticated)
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
+class UserViewSet(viewsets.ModelViewSet):
+    #permission_classes = (permissions.IsAuthenticated)
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(password = make_password(self.request.POST['password']))
